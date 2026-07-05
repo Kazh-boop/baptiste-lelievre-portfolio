@@ -1,6 +1,6 @@
 # Baptiste Lelièvre — Portfolio
 
-> Portfolio personnel de Baptiste Lelièvre, ingénieur logiciel et développeur agile (Web, Mobile, Logiciel) avec une forte culture DevOps. Basé à Lyon, en recherche d'un poste sur Ajaccio et alentours. Site bilingue français/anglais.
+> Portfolio personnel de Baptiste Lelièvre, ingénieur logiciel et développeur agile (Web, Mobile, Logiciel) avec une forte culture DevOps. Basé à Lyon, en recherche d'un poste sur Ajaccio et alentours, ou en 100% télétravail sur toute la France. Site bilingue français/anglais.
 
 Ce site est une Single Page Application Angular (SSR/prerender activé). Les données affichées sont, pour l'instant, mockées côté front ; un backend NestJS exposera à terme une API REST.
 
@@ -19,7 +19,7 @@ Ce site est une Single Page Application Angular (SSR/prerender activé). Les don
 - [Accueil / Hero](/#top) : présentation courte, intitulé de poste, localisation, liens
 - [Expériences](/#experience) : parcours professionnel sous forme de timeline (Sopra Steria : stage 2023, alternance 2023-2024, ingénieur logiciel 2024-aujourd'hui)
 - [Compétences](/#skills) : compétences techniques regroupées par catégories
-- [Contact](/#contact) : liens GitHub et email
+- [Contact](/#contact) : liens GitHub et linkedin
 
 ## Ressources pour agents IA
 
