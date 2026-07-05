@@ -1,0 +1,6 @@
+User-agent: *
+Allow: /
+
+# Contexte structuré pour les IA
+# https://llmstxt.org/
+Sitemap: https://baptiste-lelievre.fr/sitemap.xml

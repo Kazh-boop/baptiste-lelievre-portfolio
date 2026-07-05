@@ -1,0 +1,52 @@
+<section id="top" class="hero min-h-[calc(100vh-4rem)] bg-base-100">
+  <div class="hero-content w-full max-w-4xl flex-col gap-8 px-4 py-16 text-center">
+    <div class="avatar avatar-placeholder">
+      <div class="w-24 rounded-full bg-primary text-primary-content ring-2 ring-primary/30 ring-offset-4 ring-offset-base-100">
+        <span class="text-3xl font-semibold">{{ initials() }}</span>
+      </div>
+    </div>
+
+    <div class="space-y-4">
+      <p class="text-sm font-medium uppercase tracking-widest text-primary">
+        {{ i18n.t('hero.hello') }}
+      </p>
+      <h1 class="text-4xl font-bold tracking-tight sm:text-5xl">
+        {{ profile().name }}
+      </h1>
+      <p class="text-lg font-medium text-base-content/80 sm:text-xl">
+        {{ i18n.pick(profile().headline) }}
+      </p>
+      <p class="mx-auto max-w-2xl text-base leading-relaxed text-base-content/70">
+        {{ i18n.pick(profile().summary) }}
+      </p>
+      <p class="text-sm text-base-content/60">
+        <svg class="mr-1 inline h-4 w-4 align-[-2px]" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+            d="M15 10.5a3 3 0 1 1-6 0 3 3 0 0 1 6 0Z" />
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+            d="M19.5 10.5c0 7.14-7.5 11.25-7.5 11.25S4.5 17.64 4.5 10.5a7.5 7.5 0 1 1 15 0Z" />
+        </svg>
+        {{ i18n.pick(profile().location) }}
+      </p>
+    </div>
+
+    <div class="flex flex-col gap-3 sm:flex-row">
+      <a href="#experience" class="btn btn-primary">
+        {{ i18n.t('hero.cta') }}
+        <svg class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 14l-7 7m0 0l-7-7m7 7V3" />
+        </svg>
+      </a>
+      @if (githubUrl(); as url) {
+        <a [href]="url" target="_blank" rel="noopener noreferrer" class="btn btn-outline">
+          {{ i18n.t('hero.github') }}
+        </a>
+      }
+      @if (linkedinUrl(); as url) {
+        <a [href]="url" target="_blank" rel="noopener noreferrer" class="btn btn-outline">
+          {{ i18n.t('hero.linkedin') }}
+        </a>
+      }
+    </div>
+  </div>
+</section>

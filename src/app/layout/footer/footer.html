@@ -1,0 +1,27 @@
+<footer id="contact" class="border-t border-base-200 bg-base-200/50 px-4 py-12">
+  <div class="mx-auto flex max-w-5xl flex-col items-center gap-6 text-center">
+    <h2 class="text-xl font-semibold">{{ i18n.t('footer.contact') }}</h2>
+
+    <nav class="flex flex-wrap justify-center gap-3">
+      @for (link of profile().links; track link.id) {
+        <a
+          [href]="link.url"
+          [target]="link.id === 'email' ? null : '_blank'"
+          rel="noopener noreferrer"
+          class="btn btn-outline btn-sm"
+        >
+          {{ link.label }}
+        </a>
+      }
+    </nav>
+
+    <div class="space-y-1 text-xs text-base-content/60">
+      <p>© {{ year }} {{ profile().name }} — {{ i18n.t('footer.builtWith') }}</p>
+      <p>
+        <a href="/llms.txt" class="link-hover link">llms.txt</a>
+        ·
+        <a href="/ai-context.md" class="link-hover link">{{ i18n.t('footer.aiFile') }}</a>
+      </p>
+    </div>
+  </div>
+</footer>

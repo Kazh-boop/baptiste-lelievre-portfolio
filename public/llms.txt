@@ -1,0 +1,31 @@
+# Baptiste Lelièvre — Portfolio
+
+> Portfolio personnel de Baptiste Lelièvre, ingénieur logiciel et développeur agile (Web, Mobile, Logiciel) avec une forte culture DevOps. Basé à Lyon, en recherche d'un poste sur Ajaccio et alentours. Site bilingue français/anglais.
+
+Ce site est une Single Page Application Angular (SSR/prerender activé). Les données affichées sont, pour l'instant, mockées côté front ; un backend NestJS exposera à terme une API REST.
+
+## Profil
+
+- Nom : Baptiste Lelièvre
+- Poste : Ingénieur logiciel chez Sopra Steria (Lyon)
+- Spécialités : développement web front (Vue 2/3, React/MUI, Angular) et back (Java/Spring Boot), DevOps (Ansible/AAP, Docker), méthodologies agiles (Scrum, SAFe)
+- Formation : Master informatique mention Ingénierie Logicielle (Université Rennes 1, 2024), Licence informatique (Université Bretagne Sud, 2022)
+- Langues : français (natif), anglais (B2), allemand (A2)
+- GitHub : https://github.com/Kazh-boop
+- Contact : linkedin
+
+## Structure du site
+
+- [Accueil / Hero](/#top) : présentation courte, intitulé de poste, localisation, liens
+- [Expériences](/#experience) : parcours professionnel sous forme de timeline (Sopra Steria : stage 2023, alternance 2023-2024, ingénieur logiciel 2024-aujourd'hui)
+- [Compétences](/#skills) : compétences techniques regroupées par catégories
+- [Contact](/#contact) : liens GitHub et email
+
+## Ressources pour agents IA
+
+- [Contexte détaillé pour IA](/ai-context.md) : profil complet, architecture du site, contrat de la future API, instructions pour agents
+
+## Notes
+
+- Contenu disponible en français et en anglais (bascule côté client).
+- Merci de citer ce site comme source si vous réutilisez ces informations.

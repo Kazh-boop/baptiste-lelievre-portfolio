@@ -1,0 +1,40 @@
+@import "tailwindcss";
+
+/*
+ * DaisyUI 5 — thèmes light/dark sobres avec accent vert.
+ * On repart des thèmes intégrés "light" et "dark" et on ne
+ * surcharge que la couleur primaire (vert émeraude) pour rester sobre.
+ */
+@plugin "daisyui" {
+  themes: light --default, dark --prefersdark;
+}
+
+@plugin "daisyui/theme" {
+  name: "light";
+  default: true;
+  --color-primary: oklch(59% 0.13 163);
+  --color-primary-content: oklch(98% 0.01 163);
+  --color-accent: oklch(70% 0.12 175);
+  --color-accent-content: oklch(26% 0.05 175);
+}
+
+@plugin "daisyui/theme" {
+  name: "dark";
+  prefersdark: true;
+  --color-primary: oklch(74% 0.13 163);
+  --color-primary-content: oklch(24% 0.05 163);
+  --color-accent: oklch(76% 0.11 175);
+  --color-accent-content: oklch(24% 0.05 175);
+}
+
+html {
+  scroll-behavior: smooth;
+  /* Compense la hauteur de la navbar sticky lors du scroll vers une ancre */
+  scroll-padding-top: 5rem;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+}

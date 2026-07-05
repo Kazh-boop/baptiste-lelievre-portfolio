@@ -1,0 +1,25 @@
+<section id="skills" class="px-4 py-20">
+  <div class="mx-auto max-w-5xl">
+    <h2 class="mb-12 text-center text-3xl font-bold tracking-tight">
+      {{ i18n.t('skills.title') }}
+    </h2>
+
+    <div class="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3">
+      @for (category of categories(); track category.id) {
+        <div class="card border border-base-200 bg-base-100 shadow-sm">
+          <div class="card-body p-5">
+            <h3 class="card-title text-base">
+              <span class="inline-block h-2 w-2 rounded-full bg-primary" aria-hidden="true"></span>
+              {{ i18n.pick(category.label) }}
+            </h3>
+            <div class="mt-2 flex flex-wrap gap-2">
+              @for (item of category.items; track item.fr) {
+                <span class="badge badge-outline">{{ i18n.pick(item) }}</span>
+              }
+            </div>
+          </div>
+        </div>
+      }
+    </div>
+  </div>
+</section>

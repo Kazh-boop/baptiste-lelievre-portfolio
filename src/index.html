@@ -1,0 +1,33 @@
+<!doctype html>
+<html lang="fr" data-theme="light">
+<head>
+  <meta charset="utf-8">
+  <title>Baptiste Lelièvre — Ingénieur logiciel</title>
+  <base href="/">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Portfolio de Baptiste Lelièvre, ingénieur logiciel et développeur agile (Web, Mobile, Logiciel) avec une forte culture DevOps. Vue, React, Angular, Java/Spring Boot, Ansible, Docker.">
+  <meta name="author" content="Baptiste Lelièvre">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Baptiste Lelièvre — Ingénieur logiciel">
+  <meta property="og:description" content="Développeur agile (Web, Mobile, Logiciel) avec une forte culture DevOps.">
+  <meta property="og:locale" content="fr_FR">
+  <meta property="og:locale:alternate" content="en_US">
+  <link rel="icon" type="image/x-icon" href="favicon.ico">
+  <script>
+    // Applique le thème persisté (ou la préférence système) avant le premier
+    // paint pour éviter tout flash de thème incorrect.
+    (function () {
+      try {
+        var theme = localStorage.getItem('bl-theme');
+        if (theme !== 'light' && theme !== 'dark') {
+          theme = window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+        }
+        document.documentElement.setAttribute('data-theme', theme);
+      } catch (e) { /* thème par défaut */ }
+    })();
+  </script>
+</head>
+<body>
+  <app-root></app-root>
+</body>
+</html>
