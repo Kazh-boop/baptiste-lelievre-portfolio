@@ -1,10 +1,13 @@
 <section id="top" class="hero min-h-[calc(100vh-4rem)] bg-base-100">
   <div class="hero-content w-full max-w-4xl flex-col gap-8 px-4 py-16 text-center">
-    <div class="avatar avatar-placeholder">
-      <div class="w-24 rounded-full bg-primary text-primary-content ring-2 ring-primary/30 ring-offset-4 ring-offset-base-100">
-        <span class="text-3xl font-semibold">{{ initials() }}</span>
-      </div>
+    <div class="aura aura-xl rounded-full bg-green-800 text-green-300">
+        <div class="avatar avatar-placeholder">
+            <div class="w-32 rounded-full bg-primary text-primary-content ring-2 ring-primary/30 ring-offset-4 ring-offset-base-100">
+                <img src="/photo_profil.jpg" alt="photo de Baptiste Lelievre"/>
+            </div>
+        </div>
     </div>
+
 
     <div class="space-y-4">
       <p class="text-sm font-medium uppercase tracking-widest text-primary">
@@ -16,7 +19,7 @@
       <p class="text-lg font-medium text-base-content/80 sm:text-xl">
         {{ i18n.pick(profile().headline) }}
       </p>
-      <p class="mx-auto max-w-2xl text-base leading-relaxed text-base-content/70">
+      <p class="mx-auto max-w-3xl text-base leading-relaxed text-base-content/70">
         {{ i18n.pick(profile().summary) }}
       </p>
       <p class="text-sm text-base-content/60">
