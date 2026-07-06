@@ -21,6 +21,10 @@ export class Hero {
     () => this.profile().links.find((link) => link.id === 'linkedin')?.url ?? null
   )
 
+  protected readonly cvUrl = computed(
+    () => this.profile().links.find((link) => link.id === 'cv')?.url ?? null
+  )
+
   /** Initiales affichées dans l'avatar tant qu'aucune photo n'est fournie. */
   protected readonly initials = computed(() =>
     this.profile()

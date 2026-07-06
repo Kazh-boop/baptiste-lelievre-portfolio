@@ -7,6 +7,7 @@ import { NAV_LINKS } from '../../core/data/nav-links';
   selector: 'app-navbar',
   templateUrl: './navbar.html',
   changeDetection: ChangeDetectionStrategy.OnPush,
+  host: { class: 'sticky top-0 z-40 block' },
 })
 export class Navbar {
   protected readonly i18n = inject(I18nService);

@@ -9,5 +9,6 @@ export interface NavLink {
 export const NAV_LINKS: readonly NavLink[] = [
   { fragment: 'experience', labelKey: 'nav.experience' },
   { fragment: 'skills', labelKey: 'nav.skills' },
+  { fragment: 'projects', labelKey: 'nav.projects'},
   { fragment: 'contact', labelKey: 'nav.contact' },
 ];

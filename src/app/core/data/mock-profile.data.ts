@@ -33,6 +33,11 @@ export const MOCK_PROFILE: Profile = {
         id: 'linkedin',
         label: 'Linkedin',
         url: 'https://www.linkedin.com/in/baptiste-lelievre-kazh'
+    },
+    {
+        id: 'cv',
+        label: 'CV',
+        url: '/files/cv_baptiste_lelievre.pdf'
     }
   ],
 };
@@ -221,20 +226,24 @@ export const MOCK_PERSONAL_PROJECTS: readonly PersonalProject[] = [
   {
     id: 'portfolio',
     name: 'Portfolio (ce site)',
+    kind: 'web',
     description: {
-      fr: 'One-page bilingue avec thème clair/sombre. SSR, données mockées prêtes pour un backend NestJS.',
-      en: 'Bilingual one-page with light/dark theme. SSR, mocked data ready for a NestJS backend.',
+        fr: "One-page Angular SSR bilingue avec thème clair/sombre, données mockées derrière un service prêt pour un backend NestJS. Déployé sur un VPS Debian durci : conteneur Docker construit en multi-stage, Nginx en reverse proxy avec TLS Let's Encrypt, IPv4/IPv6, le tout automatisé par un playbook Ansible idempotent.",
+        en: "Bilingual Angular SSR one-page with light/dark theme, mocked data behind a service ready for a NestJS backend. Deployed on a hardened Debian VPS: multi-stage Docker build, Nginx reverse proxy with Let's Encrypt TLS, IPv4/IPv6, all automated with an idempotent Ansible playbook.",
     },
-    tags: ['Angular', 'Tailwind CSS', 'DaisyUI', 'SSR', 'Typescript']
+    tags: ['Angular', 'Tailwind CSS', 'DaisyUI', 'SSR', 'Typescript'],
+    imageUrl: 'images/projects/portfolio.png'
   },
   {
     id: 'markethopper',
     name: 'MarketHopper',
+    kind: 'mobile',
     description: {
-      fr: "Application mobile étendant l'utilisation d'Universalis (données de marché de Final Fantasy XIV).",
-      en: 'Mobile app extending Universalis (Final Fantasy XIV market data).',
+        fr: "Application mobile React Native (Expo, TypeScript) qui étend l'utilisation d'Universalis, l'API communautaire des données de marché de Final Fantasy XIV. Elle permet de consulter les prix d'un objet et de les comparer entre tous les serveurs du monde pour trouver où acheter au meilleur prix. Pensée mobile pour les joueurs console : depuis son canapé, manette en main, on vérifie les marchés sur son téléphone facilement",
+        en: "React Native mobile app (Expo, TypeScript) extending Universalis, the community API for Final Fantasy XIV market data. It lets you look up an item's prices and compare them across every server worldwide to find the best place to buy. Built mobile-first for console players: from the couch, controller in hand, you can check the markets on your phone easily",
     },
     tags: ['React Native', 'Expo', 'TypeScript'],
+    imageUrl: 'images/projects/marketHopper.png',
     repoUrl: 'https://github.com/Kazh-boop/MarketHopper',
   },
 ];

@@ -3,7 +3,7 @@
     <div class="aura aura-xl rounded-full bg-green-800 text-green-300">
         <div class="avatar avatar-placeholder">
             <div class="w-32 rounded-full bg-primary text-primary-content ring-2 ring-primary/30 ring-offset-4 ring-offset-base-100">
-                <img src="/photo_profil.jpg" alt="photo de Baptiste Lelievre"/>
+                <img src="/images/profile_picture.jpg" alt="photo de Baptiste Lelievre"/>
             </div>
         </div>
     </div>
@@ -48,6 +48,11 @@
       @if (linkedinUrl(); as url) {
         <a [href]="url" target="_blank" rel="noopener noreferrer" class="btn btn-outline">
           {{ i18n.t('hero.linkedin') }}
+        </a>
+      }
+      @if (cvUrl(); as url) {
+        <a [href]="url" target="_blank" rel="noopener" class="btn btn-outline">
+            {{ i18n.t('hero.cv') }}
         </a>
       }
     </div>

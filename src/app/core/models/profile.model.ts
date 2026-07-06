@@ -11,7 +11,7 @@ export type Lang = (typeof LANGS)[number];
 export type LocalizedText = Readonly<Record<Lang, string>>;
 
 export interface SocialLink {
-  readonly id: 'github' | 'linkedin' | 'email';
+  readonly id: 'github' | 'linkedin' | 'email' | 'cv';
   readonly label: string;
   readonly url: string;
 }
@@ -55,7 +55,9 @@ export interface SkillCategory {
 export interface PersonalProject {
     readonly id: string;
     readonly name: string;
+    readonly kind: 'web' | 'mobile';
     readonly description: LocalizedText;
     readonly tags: readonly string[];
+    readonly imageUrl: string;
     readonly repoUrl?: string;
 }
