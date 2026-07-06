@@ -16,7 +16,7 @@ export const MOCK_PROFILE: Profile = {
     en: 'Software Engineer - Agile Developer (Web, Mobile, Software)',
   },
   summary: {
-    fr: "Développeur agile avec une forte culture DevOps. Reconnu pour ma rapidité d'apprentissage, je m'adapte facilement à différentes technologies pour répondre précisément aux besoins métiers. Je recherche un poste sur Ajaccio et alentours ou alors en 100% télétravaille sur toute la France.",
+    fr: "Développeur agile avec une forte culture DevOps. Reconnu pour ma rapidité d'apprentissage, je m'adapte facilement à différentes technologies pour répondre précisément aux besoins métiers. Je recherche un poste sur Ajaccio et alentours ou alors en 100% télétravail sur toute la France.",
     en: 'Agile developer with a strong DevOps culture. As a quick learner, I easily adapt to new technologies to precisely meet business requirements. I am currently seeking a position in or around Ajaccio, or a 100% remote role anywhere in France.',
   },
   location: {
