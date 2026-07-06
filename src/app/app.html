@@ -25,7 +25,7 @@
         @for (link of links; track link.fragment) {
           <li>
             <!-- Ferme le drawer avant de laisser le navigateur scroller vers l'ancre -->
-            <a [href]="'#' + link.fragment" (click)="drawerToggle.checked = false">
+            <a [href]="'#' + link.fragment" (click)="onDrawerLink($event, link.fragment, drawerToggle)">
               {{ i18n.t(link.labelKey) }}
             </a>
           </li>

@@ -15,6 +15,17 @@ import { ProjectsSection } from "./sections/projects/projects-section";
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class App {
-  protected readonly i18n = inject(I18nService);
-  protected readonly links = NAV_LINKS;
+    protected readonly i18n = inject(I18nService);
+    protected readonly links = NAV_LINKS;
+
+    protected onDrawerLink(event: Event, fragment: string, drawer: HTMLInputElement): void {
+        event.preventDefault();
+        drawer.checked = false;
+        // On attend le prochain frame : le verrou de scroll du drawer est levé,
+        // le document redevient scrollable, le scroll peut réellement s'exécuter.
+        requestAnimationFrame(() => {
+            document.getElementById(fragment)?.scrollIntoView({ behavior: 'smooth' });
+            history.replaceState(null, '', `#${fragment}`);
+        });
+    }
 }
