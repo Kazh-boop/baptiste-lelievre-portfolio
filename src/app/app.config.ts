@@ -6,11 +6,11 @@ import { provideClientHydration, withEventReplay } from '@angular/platform-brows
 import { routes } from './app.routes';
 
 export const appConfig: ApplicationConfig = {
-  providers: [
-    provideBrowserGlobalErrorListeners(),
-    provideRouter(routes),
-    // `withFetch` est requis pour le SSR ; HttpClient servira au mode isMock=false.
-    provideHttpClient(withFetch()),
-    provideClientHydration(withEventReplay()),
-  ],
+    providers: [
+        provideBrowserGlobalErrorListeners(),
+        provideRouter(routes),
+        // `withFetch` est requis pour le SSR ; HttpClient servira au mode isMock=false.
+        provideHttpClient(withFetch()),
+        provideClientHydration(withEventReplay()),
+    ],
 };

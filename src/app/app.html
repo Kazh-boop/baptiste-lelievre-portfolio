@@ -1,36 +1,43 @@
 <!-- Drawer DaisyUI : enveloppe toute la page pour le menu burger mobile -->
 <div class="drawer">
-  <input id="nav-drawer" type="checkbox" class="drawer-toggle" #drawerToggle />
+    <input id="nav-drawer" type="checkbox" class="drawer-toggle" #drawerToggle />
 
-  <div class="drawer-content flex min-h-screen flex-col">
-    <app-navbar />
+    <div class="drawer-content flex min-h-screen flex-col">
+        <app-navbar />
 
-    <main class="flex-1">
-      <app-hero />
-      <app-experience-section />
-      <app-projects-section />
-      <app-skills-section />
-    </main>
+        <main class="flex-1">
+            <app-hero />
+            <app-experience-section />
+            <app-projects-section />
+            <app-skills-section />
+        </main>
 
-    <app-footer />
-  </div>
+        <app-footer />
+    </div>
 
-  <aside class="drawer-side z-50">
-    <label for="nav-drawer" class="drawer-overlay" [attr.aria-label]="i18n.t('nav.closeMenu')"></label>
-    <nav class="min-h-full w-72 bg-base-100 p-4">
-      <p class="px-4 py-2 text-lg font-semibold tracking-tight">
-        Baptiste<span class="text-primary">.</span>Lelièvre
-      </p>
-      <ul class="menu w-full gap-1">
-        @for (link of links; track link.fragment) {
-          <li>
-            <!-- Ferme le drawer avant de laisser le navigateur scroller vers l'ancre -->
-            <a [href]="'#' + link.fragment" (click)="onDrawerLink($event, link.fragment, drawerToggle)">
-              {{ i18n.t(link.labelKey) }}
-            </a>
-          </li>
-        }
-      </ul>
-    </nav>
-  </aside>
+    <aside class="drawer-side z-50">
+        <label
+            for="nav-drawer"
+            class="drawer-overlay"
+            [attr.aria-label]="i18n.t('nav.closeMenu')"
+        ></label>
+        <nav class="min-h-full w-72 bg-base-100 p-4">
+            <p class="px-4 py-2 text-lg font-semibold tracking-tight">
+                Baptiste<span class="text-primary">.</span>Lelièvre
+            </p>
+            <ul class="menu w-full gap-1">
+                @for (link of links; track link.fragment) {
+                    <li>
+                        <!-- Ferme le drawer avant de laisser le navigateur scroller vers l'ancre -->
+                        <a
+                            [href]="'#' + link.fragment"
+                            (click)="onDrawerLink($event, link.fragment, drawerToggle)"
+                        >
+                            {{ i18n.t(link.labelKey) }}
+                        </a>
+                    </li>
+                }
+            </ul>
+        </nav>
+    </aside>
 </div>

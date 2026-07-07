@@ -9,10 +9,10 @@ import { NAV_LINKS } from './core/data/nav-links';
 import { ProjectsSection } from "./sections/projects/projects-section";
 
 @Component({
-  selector: 'app-root',
-  imports: [Navbar, Footer, Hero, ExperienceSection, ProjectsSection, SkillsSection ],
-  templateUrl: './app.html',
-  changeDetection: ChangeDetectionStrategy.OnPush,
+    selector: 'app-root',
+    imports: [Navbar, Footer, Hero, ExperienceSection, ProjectsSection, SkillsSection],
+    templateUrl: './app.html',
+    changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class App {
     protected readonly i18n = inject(I18nService);

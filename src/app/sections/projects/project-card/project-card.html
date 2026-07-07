@@ -1,59 +1,66 @@
 <div class="card h-full w-full border border-base-200 bg-base-100 shadow-sm md:card-side">
-  <figure class="h-72 shrink-0 items-center overflow-hidden bg-base-200/60 p-6 md:h-auto md:w-2/5">
-    @if (project.kind === 'mobile') {
-      <div class="mockup-phone w-36 border-primary/40">
-        <div class="mockup-phone-camera"></div>
-        <div class="mockup-phone-display">
-          <img
-            [src]="project.imageUrl"
-            [alt]="project.name"
-            class="h-full w-full object-cover"
-            loading="lazy"
-          />
-        </div>
-      </div>
-    } @else {
-      <div class="mockup-browser w-full self-start border border-base-300 bg-base-300">
-        <div class="mockup-browser-toolbar">
-          <div class="input text-xs">{{ project.name }}</div>
-        </div>
-        <img
-          [src]="project.imageUrl"
-          [alt]="project.name"
-          class="aspect-video w-full bg-base-100 object-cover object-top"
-          loading="lazy"
-        />
-      </div>
-    }
-  </figure>
-
-  <div class="card-body gap-3 p-5">
-    <h3 class="card-title text-lg">{{ project.name }}</h3>
-    <p
-        class="text-sm text-base-content/80 md:line-clamp-none"
-        [class.line-clamp-3]="!expanded()"
+    <figure
+        class="h-72 shrink-0 items-center overflow-hidden bg-base-200/60 p-6 md:h-auto md:w-2/5"
     >
-        {{ i18n.pick(project.description) }}
-    </p>
-    <button
-        type="button"
-        class="btn btn-link btn-xs self-start px-0 md:hidden"
-        [attr.aria-expanded]="expanded()"
-        (click)="toggle()"
+        @if (project.kind === 'mobile') {
+            <div class="mockup-phone w-36 border-primary/40">
+                <div class="mockup-phone-camera"></div>
+                <div class="mockup-phone-display">
+                    <img
+                        [src]="project.imageUrl"
+                        [alt]="project.name"
+                        class="h-full w-full object-cover"
+                        loading="lazy"
+                    />
+                </div>
+            </div>
+        } @else {
+            <div class="mockup-browser w-full self-start border border-base-300 bg-base-300">
+                <div class="mockup-browser-toolbar">
+                    <div class="input text-xs">{{ project.name }}</div>
+                </div>
+                <img
+                    [src]="project.imageUrl"
+                    [alt]="project.name"
+                    class="aspect-video w-full bg-base-100 object-cover object-top"
+                    loading="lazy"
+                />
+            </div>
+        }
+    </figure>
+
+    <div class="card-body gap-3 p-5">
+        <h3 class="card-title text-lg">{{ project.name }}</h3>
+        <p
+            class="text-sm text-base-content/80 md:line-clamp-none"
+            [class.line-clamp-3]="!expanded()"
         >
-        {{ expanded() ? i18n.t('projects.less') : i18n.t('projects.more') }}
-    </button>
-    <div class="flex flex-wrap gap-2">
-      @for (tag of project.tags; track tag) {
-        <span class="badge badge-ghost badge-sm">{{ tag }}</span>
-      }
-    </div>
-    @if (project.repoUrl; as repo) {
-        <div class="card-actions mt-1">
-            <a [href]="project.repoUrl" target="_blank" rel="noopener noreferrer" class="btn btn-outline btn-sm">
-                {{ i18n.t('projects.viewCode') }}
-            </a>
+            {{ i18n.pick(project.description) }}
+        </p>
+        <button
+            type="button"
+            class="btn btn-link btn-xs self-start px-0 md:hidden"
+            [attr.aria-expanded]="expanded()"
+            (click)="toggle()"
+        >
+            {{ expanded() ? i18n.t('projects.less') : i18n.t('projects.more') }}
+        </button>
+        <div class="flex flex-wrap gap-2">
+            @for (tag of project.tags; track tag) {
+                <span class="badge badge-ghost badge-sm">{{ tag }}</span>
+            }
         </div>
-    }
-  </div>
+        @if (project.repoUrl; as repo) {
+            <div class="card-actions mt-1">
+                <a
+                    [href]="project.repoUrl"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    class="btn btn-outline btn-sm"
+                >
+                    {{ i18n.t('projects.viewCode') }}
+                </a>
+            </div>
+        }
+    </div>
 </div>

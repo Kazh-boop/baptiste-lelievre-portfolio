@@ -4,10 +4,10 @@ import { ProfileService } from '../../core/services/profile.service';
 import { ProjectCard } from "./project-card/project-card";
 
 @Component({
-  selector: 'app-projects-section',
-  templateUrl: './projects-section.html',
-  changeDetection: ChangeDetectionStrategy.OnPush,
-  imports: [ProjectCard],
+    selector: 'app-projects-section',
+    templateUrl: './projects-section.html',
+    changeDetection: ChangeDetectionStrategy.OnPush,
+    imports: [ProjectCard],
 })
 export class ProjectsSection {
     protected readonly i18n = inject(I18nService);

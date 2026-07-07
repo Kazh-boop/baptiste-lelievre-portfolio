@@ -1,34 +1,34 @@
 <section id="projects" class="bg-base-200/50 px-4 py-20">
-  <div class="mx-auto max-w-4xl">
-    <h2 class="mb-12 text-center text-3xl font-bold tracking-tight">
-      {{ i18n.t('projects.title') }}
-    </h2>
+    <div class="mx-auto max-w-4xl">
+        <h2 class="mb-12 text-center text-3xl font-bold tracking-tight">
+            {{ i18n.t('projects.title') }}
+        </h2>
 
-    <div class="relative">
-      <div
-        #carousel
-        class="carousel w-full rounded-box"
-        (scroll)="onScroll()"
-      >
-        @for (project of projects(); track project.id) {
-          <div class="carousel-item w-full">
-            <app-project-card [project]="project" />
-          </div>
-        }
-      </div>
+        <div class="relative">
+            <div #carousel class="carousel w-full rounded-box" (scroll)="onScroll()">
+                @for (project of projects(); track project.id) {
+                    <div class="carousel-item w-full">
+                        <app-project-card [project]="project" />
+                    </div>
+                }
+            </div>
 
-      <button
-        type="button"
-        class="btn btn-circle btn-sm md:btn-md absolute left-2 top-1/2 -translate-y-1/2 shadow"
-        [disabled]="isFirst()"
-        (click)="goTo(current() - 1)"
-      >❮</button>
-      <button
-        type="button"
-        class="btn btn-circle btn-sm md:btn-md absolute right-2 top-1/2 -translate-y-1/2 shadow"
-        [disabled]="isLast()"
-        (click)="goTo(current() + 1)"
-      >❯</button>
+            <button
+                type="button"
+                class="btn btn-circle btn-sm md:btn-md absolute left-2 top-1/2 -translate-y-1/2 shadow"
+                [disabled]="isFirst()"
+                (click)="goTo(current() - 1)"
+            >
+                ❮
+            </button>
+            <button
+                type="button"
+                class="btn btn-circle btn-sm md:btn-md absolute right-2 top-1/2 -translate-y-1/2 shadow"
+                [disabled]="isLast()"
+                (click)="goTo(current() + 1)"
+            >
+                ❯
+            </button>
+        </div>
     </div>
-  </div>
 </section>

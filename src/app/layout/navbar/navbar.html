@@ -1,62 +1,93 @@
 <header class="navbar sticky top-0 z-40 border-b border-base-200 bg-base-100/80 backdrop-blur">
-  <div class="navbar-start">
-    <!-- Burger : n'apparaît que sur mobile, ouvre le drawer déclaré dans App -->
-    <label
-      for="nav-drawer"
-      class="btn btn-ghost btn-square lg:hidden"
-      [attr.aria-label]="i18n.t('nav.openMenu')"
-    >
-      <svg class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
-        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
-      </svg>
-    </label>
+    <div class="navbar-start">
+        <!-- Burger : n'apparaît que sur mobile, ouvre le drawer déclaré dans App -->
+        <label
+            for="nav-drawer"
+            class="btn btn-ghost btn-square lg:hidden"
+            [attr.aria-label]="i18n.t('nav.openMenu')"
+        >
+            <svg
+                class="h-5 w-5"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+                aria-hidden="true"
+            >
+                <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d="M4 6h16M4 12h16M4 18h16"
+                />
+            </svg>
+        </label>
 
-    <a href="#top" class="btn btn-ghost px-2 text-lg font-semibold tracking-tight">
-      Baptiste<span class="text-primary">.</span>Lelièvre
-    </a>
-  </div>
+        <a href="#top" class="btn btn-ghost px-2 text-lg font-semibold tracking-tight">
+            Baptiste<span class="text-primary">.</span>Lelièvre
+        </a>
+    </div>
 
-  <nav class="navbar-center hidden lg:flex">
-    <ul class="menu menu-horizontal gap-1 px-1">
-      @for (link of links; track link.fragment) {
-        <li>
-          <a [href]="'#' + link.fragment">{{ i18n.t(link.labelKey) }}</a>
-        </li>
-      }
-    </ul>
-  </nav>
+    <nav class="navbar-center hidden lg:flex">
+        <ul class="menu menu-horizontal gap-1 px-1">
+            @for (link of links; track link.fragment) {
+                <li>
+                    <a [href]="'#' + link.fragment">{{ i18n.t(link.labelKey) }}</a>
+                </li>
+            }
+        </ul>
+    </nav>
 
-  <div class="navbar-end gap-1">
-    <!-- Bascule FR / EN -->
-    <button
-      type="button"
-      class="btn btn-ghost btn-sm font-mono uppercase"
-      (click)="i18n.toggle()"
-      [attr.aria-label]="i18n.t('lang.toggle')"
-    >
-      {{ i18n.lang() === 'fr' ? 'EN' : 'FR' }}
-    </button>
+    <div class="navbar-end gap-1">
+        <!-- Bascule FR / EN -->
+        <button
+            type="button"
+            class="btn btn-ghost btn-sm font-mono uppercase"
+            (click)="i18n.toggle()"
+            [attr.aria-label]="i18n.t('lang.toggle')"
+        >
+            {{ i18n.lang() === 'fr' ? 'EN' : 'FR' }}
+        </button>
 
-    <!-- Bascule clair / sombre -->
-    <button
-      type="button"
-      class="btn btn-ghost btn-square btn-sm"
-      (click)="theme.toggle()"
-      [attr.aria-label]="i18n.t('theme.toggle')"
-    >
-      @if (theme.isDark()) {
-        <!-- Soleil -->
-        <svg class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
-          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-            d="M12 3v1.5m0 15V21m9-9h-1.5M4.5 12H3m15.36 6.36-1.06-1.06M6.7 6.7 5.64 5.64m12.72 0-1.06 1.06M6.7 17.3l-1.06 1.06M16 12a4 4 0 1 1-8 0 4 4 0 0 1 8 0Z" />
-        </svg>
-      } @else {
-        <!-- Lune -->
-        <svg class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
-          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-            d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8Z" />
-        </svg>
-      }
-    </button>
-  </div>
+        <!-- Bascule clair / sombre -->
+        <button
+            type="button"
+            class="btn btn-ghost btn-square btn-sm"
+            (click)="theme.toggle()"
+            [attr.aria-label]="i18n.t('theme.toggle')"
+        >
+            @if (theme.isDark()) {
+                <!-- Soleil -->
+                <svg
+                    class="h-5 w-5"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    stroke="currentColor"
+                    aria-hidden="true"
+                >
+                    <path
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        stroke-width="2"
+                        d="M12 3v1.5m0 15V21m9-9h-1.5M4.5 12H3m15.36 6.36-1.06-1.06M6.7 6.7 5.64 5.64m12.72 0-1.06 1.06M6.7 17.3l-1.06 1.06M16 12a4 4 0 1 1-8 0 4 4 0 0 1 8 0Z"
+                    />
+                </svg>
+            } @else {
+                <!-- Lune -->
+                <svg
+                    class="h-5 w-5"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    stroke="currentColor"
+                    aria-hidden="true"
+                >
+                    <path
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        stroke-width="2"
+                        d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8Z"
+                    />
+                </svg>
+            }
+        </button>
+    </div>
 </header>
