@@ -7,10 +7,11 @@ import { SkillsSection } from './sections/skills/skills-section';
 import { I18nService } from './core/services/i18n.service';
 import { NAV_LINKS } from './core/data/nav-links';
 import { ProjectsSection } from "./sections/projects/projects-section";
+import { ContactSection } from "./sections/contact/contact-section";
 
 @Component({
     selector: 'app-root',
-    imports: [Navbar, Footer, Hero, ExperienceSection, ProjectsSection, SkillsSection],
+    imports: [Navbar, Footer, Hero, ExperienceSection, ProjectsSection, SkillsSection, ContactSection],
     templateUrl: './app.html',
     changeDetection: ChangeDetectionStrategy.OnPush,
 })

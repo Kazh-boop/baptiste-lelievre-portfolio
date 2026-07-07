@@ -1,0 +1,93 @@
+<section id="contact" class="bg-base-200/50 px-4 py-20">
+  <div class="mx-auto max-w-xl">
+    <h2 class="mb-3 text-center text-3xl font-bold tracking-tight">
+      {{ i18n.t('contact.title') }}
+    </h2>
+    <p class="mb-10 text-center text-base-content/70">
+      {{ i18n.t('contact.subtitle') }}
+    </p>
+
+    <!-- aria-live : succès et erreurs annoncés aux lecteurs d'écran -->
+    <div aria-live="polite">
+      @if (status() === 'sent') {
+        <div class="alert alert-success">
+          <span>{{ i18n.t('contact.success') }}</span>
+        </div>
+      } @else {
+        <form class="card bg-base-100 shadow-sm" [formGroup]="form" (ngSubmit)="onSubmit()">
+          <div class="card-body gap-4 p-6">
+
+            <!-- Honeypot : hors écran, hors tabulation, hors lecteurs d'écran -->
+            <input
+              type="text" formControlName="botcheck" tabindex="-1"
+              autocomplete="off" aria-hidden="true"
+              class="absolute left-[-9999px] h-0 w-0 opacity-0"
+            />
+
+            <div class="form-control">
+              <label class="label" for="contact-name">{{ i18n.t('contact.name') }}</label>
+              <input
+                id="contact-name" type="text" formControlName="name"
+                autocomplete="name" class="input w-full"
+                [attr.aria-invalid]="form.controls.name.touched && form.controls.name.invalid"
+              />
+              @if (form.controls.name.touched && form.controls.name.hasError('required')) {
+                <p class="mt-1 text-sm text-error">{{ i18n.t('contact.err.name') }}</p>
+              }
+            </div>
+
+            <div class="form-control">
+              <label class="label" for="contact-email">{{ i18n.t('contact.email') }}</label>
+              <input
+                id="contact-email" type="email" formControlName="email"
+                autocomplete="email" class="input w-full"
+                [attr.aria-invalid]="form.controls.email.touched && form.controls.email.invalid"
+              />
+              @if (form.controls.email.touched && form.controls.email.invalid) {
+                <p class="mt-1 text-sm text-error">{{ i18n.t('contact.err.email') }}</p>
+              }
+            </div>
+
+            <div class="form-control">
+              <label class="label" for="contact-message">{{ i18n.t('contact.message') }}</label>
+              <textarea
+                id="contact-message" formControlName="message" rows="5"
+                class="textarea w-full"
+                [attr.aria-invalid]="form.controls.message.touched && form.controls.message.invalid"
+              ></textarea>
+              @if (form.controls.message.touched && form.controls.message.hasError('required')) {
+                <p class="mt-1 text-sm text-error">{{ i18n.t('contact.err.message') }}</p>
+              } @else if (form.controls.message.touched && form.controls.message.hasError('minlength')) {
+                <p class="mt-1 text-sm text-error">{{ i18n.t('contact.err.messageMin') }}</p>
+              }
+            </div>
+
+            <!-- Le widget hCaptcha se rend ici (chargé à l'approche du viewport) -->
+            <div #captchaHost class="min-h-19.5"></div>
+            @if (captchaMissing()) {
+              <p class="text-sm text-error">{{ i18n.t('contact.err.captcha') }}</p>
+            }
+
+            @if (status() === 'error') {
+              <div class="alert alert-error">
+                <span>{{ i18n.t('contact.error') }}</span>
+                <button type="button" class="btn btn-sm" (click)="retry()">
+                  {{ i18n.t('contact.retry') }}
+                </button>
+              </div>
+            }
+
+            <button type="submit" class="btn btn-primary" [disabled]="status() === 'sending'">
+              @if (status() === 'sending') {
+                <span class="loading loading-spinner loading-sm"></span>
+                {{ i18n.t('contact.sending') }}
+              } @else {
+                {{ i18n.t('contact.send') }}
+              }
+            </button>
+          </div>
+        </form>
+      }
+    </div>
+  </div>
+</section>
