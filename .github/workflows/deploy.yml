@@ -51,15 +51,26 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: appleboy/ssh-action@v1
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}  # Jeton temporaire du workflow
+          USERNAME: ${{ github.actor }}              # Ton nom d'utilisateur GitHub
         with:
           host: ${{ secrets.DEPLOY_HOST }}
           username: deploy
           key: ${{ secrets.DEPLOY_SSH_KEY }}
+          envs: GITHUB_TOKEN,USERNAME                # Transfère ces variables au VPS
           script: |
             set -e
+
+            # 1. Connexion au registre GHCR depuis le VPS
+            echo "$GITHUB_TOKEN" | docker login ghcr.io -u "$USERNAME" --password-stdin
+
+            # 2. Déploiement
             cd ${{ secrets.DEPLOY_PATH }}
             docker compose pull
             docker compose up -d
             docker image prune -f
+
+            # 3. Healthcheck
             sleep 5
             curl -sf http://127.0.0.1:4000/ > /dev/null && echo "SSR OK" || exit 1
