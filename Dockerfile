@@ -28,7 +28,7 @@ RUN addgroup -S app && adduser -S app -G app
 
 # On n'embarque QUE le résultat du build : ni sources, ni node_modules de
 # build (le serveur SSR Angular est bundlé, autonome).
-COPY --from=build --chown=app:app /app/dist/baptiste-lelievre-portfolio ./dist
+COPY --from=build --chown=app:app /app/dist/baptiste-lelievre-portfolio-front ./dist
 
 USER app
 EXPOSE 4000

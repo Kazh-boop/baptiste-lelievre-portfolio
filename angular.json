@@ -7,7 +7,7 @@
   },
   "newProjectRoot": "projects",
   "projects": {
-    "baptiste-lelievre-portfolio": {
+    "baptiste-lelievre-portfolio-front": {
       "projectType": "application",
       "schematics": {},
       "root": "",
@@ -69,10 +69,10 @@
           "builder": "@angular/build:dev-server",
           "configurations": {
             "production": {
-              "buildTarget": "baptiste-lelievre-portfolio:build:production"
+              "buildTarget": "baptiste-lelievre-portfolio-front:build:production"
             },
             "development": {
-              "buildTarget": "baptiste-lelievre-portfolio:build:development"
+              "buildTarget": "baptiste-lelievre-portfolio-front:build:development"
             }
           },
           "defaultConfiguration": "development"
