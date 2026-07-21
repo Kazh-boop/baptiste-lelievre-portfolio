@@ -6,7 +6,7 @@ on:
   pull_request:
 
 env:
-  IMAGE: ghcr.io/kazh-boop/baptiste-lelievre-portfolio
+  IMAGE: ghcr.io/kazh-boop/baptiste-lelievre-portfolio-front
 
 jobs:
   # 1) Filet de sécurité : tourne sur PR ET sur push. Rien ne se déploie ici.
