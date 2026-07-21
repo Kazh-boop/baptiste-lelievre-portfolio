@@ -1,0 +1,64 @@
+name: CI/CD
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+env:
+  IMAGE: ghcr.io/kazh-boop/portfolio
+
+jobs:
+  # 1) Filet de sécurité : tourne sur PR ET sur push. Rien ne se déploie ici.
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+      - run: npm ci
+      - run: npm test -- --watch=false
+      - run: npm run build
+
+  # 2) Construit l'image UNE fois et la pousse sur GHCR. Push sur main uniquement.
+  build-and-push:
+    needs: test                                  # ne démarre que si test est vert
+    if: github.ref == 'refs/heads/main'          # une PR s'arrête après test
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      packages: write                            # autorise le push GHCR
+    steps:
+      - uses: actions/checkout@v4
+      - uses: docker/login-action@v3
+        with:
+          registry: ghcr.io
+          username: ${{ github.actor }}
+          password: ${{ secrets.GITHUB_TOKEN }}  # fourni auto, rien à créer
+      - uses: docker/build-push-action@v6
+        with:
+          context: .
+          push: true
+          tags: |
+            ${{ env.IMAGE }}:${{ github.sha }}    # traçable → rollback possible
+            ${{ env.IMAGE }}:latest               # alias mouvant → le compose pointe dessus
+
+  # 3) Se connecte au VPS et rafraîchit le conteneur. Le VPS ne build jamais.
+  deploy:
+    needs: build-and-push
+    runs-on: ubuntu-latest
+    steps:
+      - uses: appleboy/ssh-action@v1
+        with:
+          host: ${{ secrets.DEPLOY_HOST }}
+          username: deploy
+          key: ${{ secrets.DEPLOY_SSH_KEY }}
+          script: |
+            cd /opt/portfolio
+            docker compose pull
+            docker compose up -d
+            docker image prune -f
+            sleep 5
+            curl -sf http://127.0.0.1:4000/ > /dev/null && echo "SSR OK" || exit 1
