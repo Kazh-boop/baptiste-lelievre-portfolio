@@ -62,5 +62,3 @@ jobs:
             docker image prune -f
             sleep 5
             curl -sf http://127.0.0.1:4000/ > /dev/null && echo "SSR OK" || exit 1
-    permissions:
-        packages: read
