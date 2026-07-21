@@ -216,7 +216,6 @@ export const MOCK_SKILL_CATEGORIES: readonly SkillCategory[] = [
         label: { fr: 'Langues', en: 'Languages' },
         items: [
             { fr: 'Anglais - B2', en: 'English - B2' },
-            { fr: 'Allemand - A2', en: 'German - A2' },
             { fr: 'Français - natif', en: 'French - native' },
         ],
     },
