@@ -1,4 +1,4 @@
-# Portfolio — Baptiste Lelièvre
+# Portfolio - Baptiste Lelièvre
 
 Portfolio one-page bilingue (FR/EN), thème clair/sombre, déployé en continu sur un VPS.
 
@@ -30,7 +30,7 @@ src/app/
 ├── core/
 │   ├── models/         # types stricts (Profile, Experience, PersonalProject, ContactMessage, LocalizedText)
 │   ├── data/           # données mockées bilingues + liens de navigation
-│   └── services/       # profile, contact, i18n (FR/EN), theme (light/dark) — tous en signals
+│   └── services/       # profile, contact, i18n (FR/EN), theme (light/dark) - tous en signals
 ├── layout/             # navbar (drawer mobile), footer
 └── sections/           # hero, experience, projects (carrousel), skills, contact
     └── projects/project-card/   # card enfant (input signal)
@@ -43,8 +43,8 @@ public/                 # servis tels quels : llms.txt, ai-context.md, sitemap.x
 
 `src/environments/environment.ts` et `.development.ts` :
 
-- `isMock` — pilote les **données** (profil, expériences, projets). `true` jusqu'au backend NestJS.
-- `contact.isMock` — pilote le **formulaire de contact**. `false` en prod (relais Web3Forms réel), `true` en dev.
+- `isMock` - pilote les **données** (profil, expériences, projets). `true` jusqu'au backend NestJS.
+- `contact.isMock` - pilote le **formulaire de contact**. `false` en prod (relais Web3Forms réel), `true` en dev.
 
 Deux drapeaux distincts car les deux préoccupations ont des cycles de vie différents.
 
