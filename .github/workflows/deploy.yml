@@ -42,8 +42,8 @@ jobs:
           context: .
           push: true
           tags: |
-            ${{ env.IMAGE }}:${{ github.sha }}    # traçable → rollback possible
-            ${{ env.IMAGE }}:latest               # alias mouvant → le compose pointe dessus
+            ${{ env.IMAGE }}:${{ github.sha }}
+            ${{ env.IMAGE }}:latest
 
   # 3) Se connecte au VPS et rafraîchit le conteneur. Le VPS ne build jamais.
   deploy:
